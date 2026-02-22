@@ -32,7 +32,7 @@
       };
       security = {
         admin_user = "admin";
-        admin_password = "$__file{config.age.secrets.grafana.path}";
+        admin_password = "$__file{${config.age.secrets.grafana.path}}";
       };
     };
   };
