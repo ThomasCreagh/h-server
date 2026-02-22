@@ -3,4 +3,5 @@ let
 in {
   "secrets/wireguard.age".publicKeys = [ hServer ];
   "secrets/radicale.age".publicKeys = [ hServer ];
+  "secrets/grafana.age".publicKeys = [ hServer ];
 }

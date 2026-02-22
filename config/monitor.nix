@@ -25,9 +25,22 @@
 
   services.grafana = {
     enable = true;
-    settings.server = {
-      http_addr = "0.0.0.0";
-      http_port = 3000;
+    settings = {
+      server = {
+        http_addr = "0.0.0.0";
+        http_port = 3000;
+      };
+      security = {
+        admin_user = "admin";
+        admin_password = "$__file{config.age.secrets.grafana.path}";
+      };
     };
+  };
+
+  age.secrets.grafana = {
+    file = ../secrets/grafana.age;
+    owner = "grafana";
+    group = "grafana";
+    mode = "0400";
   };
 }
