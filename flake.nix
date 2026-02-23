@@ -22,6 +22,7 @@
         ./config/radicale.nix
         ./config/terraria.nix
         ./config/vaultwarden.nix
+        ./config/matrix.nix
         agenix.nixosModules.default
       ];
     };
