@@ -64,7 +64,8 @@
     netdevs."50-wg0" = {
       netdevConfig = { Kind = "wireguard"; Name = "wg0"; };
       wireguardConfig = {
-        PrivateKeyFile = "%{file:${config.age.secrets.wireguard.path}}%";
+        #PrivateKeyFile = "%{file:${config.age.secrets.wireguard.path}}%";
+        PrivateKeyFile = config.age.secrets.wireguard.path;
         FirewallMark = 42;
       };
       wireguardPeers = [
@@ -78,7 +79,7 @@
       ];
     };
     networks."10-eth" = {
-      matchConfig.name = "enp0s20f0u2";
+      matchConfig.Name = "enp0s20f0u2";
       networkConfig.DHCP = "yes";
       dhcpV4Config.RouteMetric = 100;
     };
