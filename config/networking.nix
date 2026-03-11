@@ -7,6 +7,7 @@
     mode = "0400";
   };
 
+  networking.networkmanager.enable = false;
   services.resolved.enable = false;
 
   boot.kernel.sysctl = {
@@ -75,6 +76,11 @@
           PersistentKeepalive = 25;
         }
       ];
+    };
+    networks."10-eth" = {
+      matchConfig.name = "enp0s20f0u2";
+      networkConfig.DHCP = "yes";
+      dhcpV4Config.RouteMetric = 100;
     };
   };
 }

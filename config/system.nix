@@ -5,7 +5,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "h-server";
-  networking.networkmanager.enable = true;
 
   nix.settings.experimental-features = [ "flakes" "nix-command" ];
 
