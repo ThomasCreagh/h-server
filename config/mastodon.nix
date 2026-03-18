@@ -8,6 +8,7 @@
     localDomain = "social.thomascreagh.net.com";
     configureNginx = false;
     smtp.fromAddress = "noreply@social.thomascreagh.com";
+    trustedProxy = "192.168.26.1";
     extraConfig = {
       BIND = "0.0.0.0";
       # SINGLE_USER_MODE = "true";
