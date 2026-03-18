@@ -1,6 +1,11 @@
 { config, pkgs, lib, ... }:
 
 {
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "acme@0x74.net";
+  };
+
   age.secrets.wireguard = {
     file = ../secrets/wireguard.age;
     owner = "systemd-network";

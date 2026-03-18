@@ -23,6 +23,7 @@
         ./config/terraria.nix
         ./config/vaultwarden.nix
         ./config/matrix.nix
+        ./config/mastodon.nix
         agenix.nixosModules.default
       ];
     };
