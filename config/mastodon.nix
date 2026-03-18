@@ -6,11 +6,10 @@
     enableUnixSocket = false;
     webPort = 55001;
     localDomain = "social.thomascreagh.net.com";
-    configureNginx = true;
+    configureNginx = false;
     smtp.fromAddress = "noreply@social.thomascreagh.com";
     extraConfig = {
       BIND = "0.0.0.0";
-
       # SINGLE_USER_MODE = "true";
     };
     streamingProcesses = 2;
