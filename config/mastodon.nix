@@ -5,7 +5,7 @@
     enable = true;
     enableUnixSocket = false;
     webPort = 55001;
-    localDomain = "social.thomascreagh.net.com";
+    localDomain = "social.thomascreagh.com";
     configureNginx = false;
     smtp.fromAddress = "noreply@social.thomascreagh.com";
     trustedProxy = "192.168.26.1";
