@@ -24,6 +24,7 @@
         ./config/vaultwarden.nix
         ./config/matrix.nix
         ./config/mastodon.nix
+        ./config/nginx.nix
         agenix.nixosModules.default
       ];
     };
