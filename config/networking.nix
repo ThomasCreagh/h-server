@@ -33,6 +33,7 @@
       2283  # Immich (img server)
       5232  # Radicale (calendar and contacts)
       3000  # Grafana (server monitoring)
+      8008  # Matix (chat application)
     ];
     allowedUDPPorts = [ 51820 ];
     
