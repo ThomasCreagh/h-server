@@ -41,7 +41,7 @@ in {
       url_preview_enabled = true;
       enable_registration = false;
       enable_metrics = false;
-      registration_shared_secret_path = "/var/lib/matrix-sytnapse/registration_secret";
+      registration_shared_secret_path = "/var/lib/matrix-synapse/registration_secret";
       trusted_key_servers = [
         {
           server_name = "matrix.org";
