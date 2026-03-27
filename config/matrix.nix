@@ -69,6 +69,7 @@ in {
         "turn:turn.0x74.net:5349?transport=tcp"
         "turn:turn.0x74.net:5350?transport=tcp"
       ];
+#      turn_shared_secret = builtins.readFile config.age.secrets.coturn.path;
     };
 
     extraConfigFiles = [
