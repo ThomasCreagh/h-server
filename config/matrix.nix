@@ -62,7 +62,18 @@ in {
           server_name = "matrix.org";
         }
       ];
+
+      turn_uris = [
+        "turn:turn.0x74.net:5349?transport=udp"
+        "turn:turn.0x74.net:5350?transport=udp"
+        "turn:turn.0x74.net:5349?transport=tcp"
+        "turn:turn.0x74.net:5350?transport=tcp"
+      ];
     };
+
+    extraConfigFiles = [
+      config.age.secrets.coturn.path
+    ];
   };
 
   services.postgresql = {
@@ -74,5 +85,11 @@ in {
         ensureDBOwnership = true;
       }
     ];
+  };
+
+  age.secrets.coturn = {
+    file = ../secrets/coturn.age;
+    owner = "matrix-synapse";
+    mode = "0400";
   };
 }
