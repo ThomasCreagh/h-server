@@ -53,6 +53,7 @@
       routingPolicyRules = [
         { To = "91.98.237.217/32"; Priority = 5; }      # VPS endpoint: always use main table
         { To = "192.168.1.0/24"; Priority = 5; }        # local network: always use main table
+        { SourcePort = "7777"; Priority = 5; } 
         { 
           # Default route for all traffic
           Family = "both";
