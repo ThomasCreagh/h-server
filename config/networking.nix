@@ -27,6 +27,7 @@
     allowedTCPPorts = [
       22    # SSH (remote access)
       7777  # Terraria server (fun game :))
+      6767  # Terraria server (fun game :))
       80    # HTTP (web apps)
       443   # HTTPS (web apps)
       8222  # Vaultwarden (passwords)
