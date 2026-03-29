@@ -78,6 +78,12 @@ in {
     ];
   };
 
+  services.lk-jwt-service = {
+    enable = true;
+    keyFile = config.age.secrets.lk-jwt.path;
+    livekitUrl = "https://matrix-s9rky4oh.livekit.cloud";
+  };
+
   services.postgresql = {
     enable = true;
     ensureDatabases = ["matrix-synapse"];

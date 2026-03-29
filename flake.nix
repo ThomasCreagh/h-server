@@ -22,7 +22,7 @@
         ./config/radicale.nix
         ./config/terraria.nix
         ./config/vaultwarden.nix
-        ./config/matrix.nix
+        #./config/matrix.nix
         ./config/mastodon.nix
         ./config/nginx.nix
         agenix.nixosModules.default
