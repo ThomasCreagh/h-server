@@ -27,7 +27,6 @@
     allowedTCPPorts = [
       22    # SSH (remote access)
       7777  # Terraria server (fun game :))
-      6767  # Terraria server (fun game :))
       80    # HTTP (web apps)
       443   # HTTPS (web apps)
       8222  # Vaultwarden (passwords)
@@ -53,7 +52,6 @@
       routingPolicyRules = [
         { To = "91.98.237.217/32"; Priority = 5; }      # VPS endpoint: always use main table
         { To = "192.168.1.0/24"; Priority = 5; }        # local network: always use main table
-        { SourcePort = "7777"; Priority = 5; } 
         { 
           # Default route for all traffic
           Family = "both";
