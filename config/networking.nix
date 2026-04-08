@@ -13,9 +13,9 @@
   };
 
   networking.networkmanager.enable = false;
-  services.resolved.enable = false;
-  networking.nameservers = [ "192.168.26.1"
- "192.168.26.2" ];
+  #services.resolved.enable = false;
+  #networking.nameservers = [ "192.168.26.1"
+ #"192.168.26.2" ];
 
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = "1";
@@ -53,6 +53,10 @@
       matchConfig.Name = "wg0";
       address = [ "fd31:bf08:57cb::7/64" "192.168.26.7/24" ];
       linkConfig.MTUBytes = 1420; # to accomidate for added vpn header
+      networkConfig = {
+        DNS="192.168.26.1";
+        Domains="~.";
+      };
       routingPolicyRules = [
         { To = "91.98.237.217/32"; Priority = 5; }      # VPS endpoint: always use main table
         { To = "192.168.1.0/24"; Priority = 5; }        # local network: always use main table
