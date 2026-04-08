@@ -14,7 +14,8 @@
 
   networking.networkmanager.enable = false;
   services.resolved.enable = false;
-  networking.nameservers = [ "192.168.26.1" ];
+  networking.nameservers = [ "192.168.26.1"
+ "192.168.26.2" ];
 
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = "1";
