@@ -14,6 +14,7 @@
 
   networking.networkmanager.enable = false;
   services.resolved.enable = false;
+  networking.nameservers = [ "192.168.26.1" ];
 
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = "1";
@@ -26,16 +27,18 @@
     
     allowedTCPPorts = [
       22    # SSH (remote access)
-      7777  # Terraria server (fun game :))
-      80    # HTTP (web apps)
-      443   # HTTPS (web apps)
-      8222  # Vaultwarden (passwords)
-      2283  # Immich (img server)
-      5232  # Radicale (calendar and contacts)
-      3000  # Grafana (server monitoring)
-      8008  # Matix (chat application)
+      #7777  # Terraria server (fun game :))
+      #80    # HTTP (web apps)
+      #443   # HTTPS (web apps)
+      #8222  # Vaultwarden (passwords)
+      #2283  # Immich (img server)
+      #5232  # Radicale (calendar and contacts)
+      #3000  # Grafana (server monitoring)
+      #8008  # Matix (chat application)
     ];
-    allowedUDPPorts = [ 51820 ];
+    allowedUDPPorts = [
+      51820 # Wireguard handshake port
+    ];
     
     trustedInterfaces = [ "wg0" ];
   };
