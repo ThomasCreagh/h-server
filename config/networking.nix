@@ -13,9 +13,6 @@
   };
 
   networking.networkmanager.enable = false;
-  #services.resolved.enable = false;
-  #networking.nameservers = [ "192.168.26.1"
- #"192.168.26.2" ];
 
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = "1";
@@ -25,23 +22,8 @@
   networking.firewall = {
     enable = true;
     checkReversePath = "loose";
-    
-    allowedTCPPorts = [
-      22    # SSH (remote access)
-      #7777  # Terraria server (fun game :))
-      #80    # HTTP (web apps)
-      #443   # HTTPS (web apps)
-      #8222  # Vaultwarden (passwords)
-      #2283  # Immich (img server)
-      #5232  # Radicale (calendar and contacts)
-      #3000  # Grafana (server monitoring)
-      #8008  # Matix (chat application)
-    ];
-    allowedUDPPorts = [
-      51820 # Wireguard handshake port
-    ];
-    
-    trustedInterfaces = [ "wg0" ];
+    allowedTCPPorts = [ 22 ]; # SSH (remote access)
+    trustedInterfaces = [ "wg0" ]; # allow all ports over this interface
   };
   networking.useNetworkd = true;
   systemd.services."systemd-networkd-wait-online".enable = lib.mkForce false;
@@ -52,7 +34,6 @@
     networks."50-wg0" = {
       matchConfig.Name = "wg0";
       address = [ "fd31:bf08:57cb::7/64" "192.168.26.7/24" ];
-      linkConfig.MTUBytes = 1420; # to accomidate for added vpn header
       networkConfig = {
         DNS="192.168.26.1";
         Domains="~.";
@@ -60,6 +41,7 @@
       routingPolicyRules = [
         { To = "91.98.237.217/32"; Priority = 5; }      # VPS endpoint: always use main table
         { To = "192.168.1.0/24"; Priority = 5; }        # local network: always use main table
+        { To = "nixos.org"; Priority = 5; }             # nixos.org: always use main table
         { 
           # Default route for all traffic
           Family = "both";
@@ -78,7 +60,6 @@
     netdevs."50-wg0" = {
       netdevConfig = { Kind = "wireguard"; Name = "wg0"; };
       wireguardConfig = {
-        #PrivateKeyFile = "%{file:${config.age.secrets.wireguard.path}}%";
         PrivateKeyFile = config.age.secrets.wireguard.path;
         FirewallMark = 42;
       };
