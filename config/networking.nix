@@ -73,11 +73,11 @@
         }
       ];
     };
-    #networks."10-wifi" = {
-    #  matchConfig.Name = "wlp0s20f3";
-    #  networkConfig.DHCP = "yes";
-    #  dhcpV4Config.RouteMetric = 100;
-    #};
+    networks."10-wifi" = {
+      matchConfig.Name = "wlp0s20f3";
+      networkConfig.DHCP = "yes";
+      dhcpV4Config.RouteMetric = 100;
+    };
     networks."10-eth" = {
       matchConfig.Name = "enp0s20f0u2";
       networkConfig.DHCP = "yes";
