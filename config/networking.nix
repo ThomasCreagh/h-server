@@ -41,7 +41,7 @@
       routingPolicyRules = [
         { To = "91.98.237.217/32"; Priority = 5; }      # VPS endpoint: always use main table
         { To = "192.168.1.0/24"; Priority = 5; }        # local network: always use main table
-        { To = "nixos.org"; Priority = 5; }             # nixos.org: always use main table
+        { To = "146.75.121.91"; Priority = 5; }             # nixos.org: always use main table
         { 
           # Default route for all traffic
           Family = "both";
@@ -73,6 +73,11 @@
         }
       ];
     };
+    #networks."10-wifi" = {
+    #  matchConfig.Name = "wlp0s20f3";
+    #  networkConfig.DHCP = "yes";
+    #  dhcpV4Config.RouteMetric = 100;
+    #};
     networks."10-eth" = {
       matchConfig.Name = "enp0s20f0u2";
       networkConfig.DHCP = "yes";
