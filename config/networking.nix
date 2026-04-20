@@ -26,6 +26,7 @@
     trustedInterfaces = [ "wg0" ]; # allow all ports over this interface
   };
   networking.useNetworkd = true;
+  networking.wireless.iwd.enable = true; # use the iwctl cli command to connet to wifi
   systemd.services."systemd-networkd-wait-online".enable = lib.mkForce false;
   
   systemd.network = {
