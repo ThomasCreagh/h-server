@@ -79,7 +79,7 @@
       dhcpV4Config.RouteMetric = 100;
     };
     networks."10-eth" = {
-      matchConfig.Name = "enp0s20f0u2";
+      matchConfig.Name = "enp0s20f0u1";
       networkConfig.DHCP = "yes";
       dhcpV4Config.RouteMetric = 100;
     };
