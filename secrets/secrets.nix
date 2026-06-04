@@ -5,4 +5,5 @@ in {
   "secrets/radicale.age".publicKeys = [ hServer ];
   "secrets/grafana.age".publicKeys = [ hServer ];
   "secrets/coturn.age".publicKeys = [ hServer ];
+  "secrets/gear-secret-key.age".publicKeys = [ hServer ];
 }

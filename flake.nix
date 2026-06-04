@@ -14,6 +14,7 @@
       system = "x86_64-linux";
       modules = [
         ./config/system.nix
+        ./config/postgresql.nix
         ./config/hardware.nix
         ./config/immich.nix
         ./config/jellyfin.nix
