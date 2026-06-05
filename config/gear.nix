@@ -37,6 +37,7 @@ in {
       WorkingDirectory = "${gearDir}/backend";
       Restart = "always";
       User = "tom";
+      StateDirectory = "gear";
     };
   };
 
