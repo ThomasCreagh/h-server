@@ -1,10 +1,18 @@
 { config, pkgs, ... }:
 
 let
-  gearDir = /var/www/gear.thomascreagh.com;
+  gearDir = "/var/www/gear.thomascreagh.com";
   pythonEnv = pkgs.python312.withPackages (ps: with ps; [
-    fastapi uvicorn sqlalchemy psycopg2 python-jose passlib
-    pydantic python-dotenv python-multipart
+    fastapi
+    uvicorn
+    sqlalchemy
+    psycopg2
+    python-jose
+    passlib
+    pydantic
+    python-dotenv
+    python-multipart
+    email-validator 
   ]);
 in {
   # Systemd service for the FastAPI backend
@@ -14,11 +22,13 @@ in {
     wantedBy = [ "multi-user.target" ];
     environment = {
       DATABASE_URL = "postgresql://gearuser:gearpass@localhost/gear";
-      SECRET_KEY = "$(cat /run/agenix/gear-secret-key)";
+      SECRET_KEY_PATH = config.age.secrets.gear-secret-key.path;
       SMTP_HOST = "mail.0x74.net";
       SMTP_PORT = "587";
       SMTP_USER = "gear@thomascreagh.com";
+      SMTP_PASS_PATH = config.age.secrets.gear-smtp-pass.path;
       ADMIN_EMAIL = "gear-admin@thomascreagh.com";
+      MAX_LOAN_DAYS = "14";
     };
     serviceConfig = {
       ExecStart = "${pythonEnv}/bin/uvicorn main:app --host 0.0.0.0 --port 8001";
@@ -32,5 +42,11 @@ in {
   services.postgresql = {
     enable = true;
     ensureDatabases = [ "gear" ];
+  };
+  age.secrets.gear-secret-key = {
+    file = ../secrets/gear-secret-key.age;
+  };
+  age.secrets.gear-smtp-pass = {
+    file = ../secrets/gear-smtp-pass.age;
   };
 }
