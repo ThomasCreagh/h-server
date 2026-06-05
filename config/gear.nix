@@ -45,8 +45,12 @@ in {
   };
   age.secrets.gear-secret-key = {
     file = ../secrets/gear-secret-key.age;
+    owner = "tom";
+    mode = "0400";
   };
   age.secrets.gear-smtp-pass = {
     file = ../secrets/gear-smtp-pass.age;
+    owner = "tom";
+    mode = "0400";
   };
 }
