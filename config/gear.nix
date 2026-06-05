@@ -9,10 +9,12 @@ let
     psycopg2
     python-jose
     passlib
+    bcrypt
     pydantic
+    email-validator 
     python-dotenv
     python-multipart
-    email-validator 
+    cryptography
   ]);
 in {
   # Systemd service for the FastAPI backend
