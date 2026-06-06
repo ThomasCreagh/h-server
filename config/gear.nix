@@ -15,6 +15,8 @@ let
     python-dotenv
     python-multipart
     cryptography
+    openpyxl
+    pandas
   ]);
 in {
   # Systemd service for the FastAPI backend
@@ -31,6 +33,7 @@ in {
       SMTP_PASS_PATH = config.age.secrets.gear-smtp-pass.path;
       ADMIN_EMAIL = "gear-admin@thomascreagh.com";
       MAX_LOAN_DAYS = "14";
+      UPLOAD_DIR = "/var/lib/gear/uploads";
     };
     serviceConfig = {
       ExecStart = "${pythonEnv}/bin/uvicorn main:app --host 0.0.0.0 --port 8001";
