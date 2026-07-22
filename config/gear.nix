@@ -11,13 +11,14 @@ let
     passlib
     bcrypt
     pydantic
-    email-validator 
+    email-validator
     python-dotenv
     python-multipart
     cryptography
     openpyxl
     pandas
-  ]);
+    (apscheduler.overridePythonAttrs (old: { doCheck = false; }))
+  ]); 
 in {
   # Systemd service for the FastAPI backend
   systemd.services.gear = {
