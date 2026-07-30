@@ -74,7 +74,12 @@
         }
       ];
     };
-    networks."10-wifi" = {
+    networks."10-wifi-new" = {
+      matchConfig.Name = "wlan0";
+      networkConfig.DHCP = "yes";
+      dhcpV4Config.RouteMetric = 100;
+    };
+    networks."10-wifi-old" = {
       matchConfig.Name = "wlp0s20f3";
       networkConfig.DHCP = "yes";
       dhcpV4Config.RouteMetric = 100;
