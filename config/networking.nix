@@ -59,7 +59,7 @@
     };
   
     netdevs."50-wg0" = {
-      netdevConfig = { Kind = "wireguard"; Name = "wg0"; MTUBytes = "1320"; };
+      netdevConfig = { Kind = "wireguard"; Name = "wg0"; }; # MTUBytes = "1320"; 
       wireguardConfig = {
         PrivateKeyFile = config.age.secrets.wireguard.path;
         FirewallMark = 42;
