@@ -1,10 +1,9 @@
 { config, pkgs, lib, ... }:
-
 {
   services.prometheus = {
     enable = true;
     port = 9090;
-    
+
     exporters = {
       node = {
         enable = true;
@@ -12,7 +11,7 @@
         port = 9100;
       };
     };
-    
+
     scrapeConfigs = [
       {
         job_name = "node";
@@ -32,13 +31,21 @@
       };
       security = {
         admin_user = "admin";
-        admin_password = "$__file{${config.age.secrets.grafana.path}}";
+        admin_password = "$__file{${config.age.secrets.grafana-admin-password.path}}";
+        secret_key = "$__file{${config.age.secrets.grafana-secret-key.path}}";
       };
     };
   };
 
-  age.secrets.grafana = {
-    file = ../secrets/grafana.age;
+  age.secrets.grafana-admin-password = {
+    file = ../secrets/grafana-admin-password.age;
+    owner = "grafana";
+    group = "grafana";
+    mode = "0400";
+  };
+
+  age.secrets.grafana-secret-key = {
+    file = ../secrets/grafana-secret-key.age;
     owner = "grafana";
     group = "grafana";
     mode = "0400";

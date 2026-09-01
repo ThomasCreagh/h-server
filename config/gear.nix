@@ -3,7 +3,7 @@
 let
   gearDir = "/var/www/gear.thomascreagh.com";
   pythonEnv = pkgs.python312.withPackages (ps: with ps; [
-    fastapi
+    (fastapi.overridePythonAttrs (old: { doCheck = false; }))
     uvicorn
     sqlalchemy
     psycopg2
@@ -18,6 +18,7 @@ let
     openpyxl
     pandas
     (apscheduler.overridePythonAttrs (old: { doCheck = false; }))
+    (scipy.overridePythonAttrs (old: { doCheck = false; }))
   ]); 
 in {
   # Systemd service for the FastAPI backend
