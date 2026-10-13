@@ -86,6 +86,7 @@
     openssl
     jq
     apacheHttpd
+    ghostty.terminfo
   ];
 
   programs.nix-ld.enable = true;
