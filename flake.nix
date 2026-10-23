@@ -16,6 +16,7 @@
         ./config/system.nix
         ./config/postgresql.nix
         ./config/gear.nix
+        ./config/weather.nix
         ./config/hardware.nix
         ./config/immich.nix
         ./config/jellyfin.nix
