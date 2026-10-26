@@ -87,6 +87,7 @@
     jq
     apacheHttpd
     ghostty.terminfo
+    wakeonlan
   ];
 
   programs.nix-ld.enable = true;
