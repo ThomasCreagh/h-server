@@ -78,6 +78,12 @@
       matchConfig.Name = "wlan0";
       networkConfig.DHCP = "yes";
       dhcpV4Config.RouteMetric = 100;
+      neighbors = [
+        {
+          Address = "192.168.1.32";
+          LinkLayerAddress = "f0:b6:1e:7f:ce:a7";
+        }
+      ];
     };
     networks."10-wifi-old" = {
       matchConfig.Name = "wlp0s20f3";
