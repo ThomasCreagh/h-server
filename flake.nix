@@ -17,6 +17,7 @@
         ./config/postgresql.nix
         ./config/gear.nix
         ./config/ai.nix
+        ./config/open-webui.nix
         ./config/weather.nix
         ./config/hardware.nix
         ./config/immich.nix
